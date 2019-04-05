@@ -150,7 +150,7 @@ namespace BeatSaberTweaks
         [SerializeField]
         Vector3 scorePosition = new Vector3(3.25f, 3.25f, 7.0f);
         public static Vector3 ScorePosition { get => instance.scorePosition; set { instance.scorePosition = value; Plugin.saveRequested = true; } }
-        
+
         // Party Tweaks
         [SerializeField]
         bool noArrows = false;
@@ -191,7 +191,7 @@ namespace BeatSaberTweaks
 
         public Settings()
         {
-            
+
         }
 
         public static string SettingsPath()
@@ -205,7 +205,7 @@ namespace BeatSaberTweaks
 
             string oldFilePath = Path.Combine(Environment.CurrentDirectory, "Tweaks.cfg");
             string filePath = SettingsPath();
-            
+
             // If the file exists in the old location, but not in the new one, move it to the new location
             if (File.Exists(oldFilePath) && !File.Exists(filePath))
             {
@@ -220,10 +220,11 @@ namespace BeatSaberTweaks
                 if (instance.settingsVersion.Equals("0.0.0"))
                 {
                     Plugin.Log("Settings didn't contain version number! Converting old settings to new format!", Plugin.LogLevel.Error);
-                    instance.noteHitVolume = instance.noteHitVolume * 0.5f;
-                    instance.noteMissVolume = instance.noteMissVolume * 0.9f;
+                    instance.noteHitVolume *= 0.5f;
+                    instance.noteMissVolume *= 0.9f;
                     Plugin.Log("Settings conversion finished!", Plugin.LogLevel.Error);
-                }else if (instance.settingsVersion.Equals("4.2.2") || instance.settingsVersion.Equals("4.2.3"))
+                }
+                else if (instance.settingsVersion.Equals("4.2.2") || instance.settingsVersion.Equals("4.2.3"))
                 {
                     Plugin.Log("Old config found! Setting SFX volume to default values, if they are at dangerous levels", Plugin.LogLevel.Error);
                     if (instance.noteHitVolume > defaultNoteHitVolume) instance.noteHitVolume = defaultNoteHitVolume;

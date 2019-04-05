@@ -1,9 +1,5 @@
-﻿using System.Text;
-using IllusionPlugin;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using Object = UnityEngine.Object;
 using System.Collections;
 using System;
 using System.Linq;

@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using VRUI;
-using VRUIControls;
-using TMPro;
-using IllusionPlugin;
-using CustomUI.BeatSaber;
 using CustomUI.Settings;
 using System.Reflection;
 using Harmony;
@@ -34,7 +25,7 @@ namespace BeatSaberTweaks
             if (Instance != null) return;
             new GameObject("Tweak Manager").AddComponent<TweakManager>();
             harmony = HarmonyInstance.Create("com.megalon.BeatSaber.BeatSaberTweaks");
-            
+
             PatchWithHarmony();
         }
 
@@ -70,8 +61,8 @@ namespace BeatSaberTweaks
 
         private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            if(arg0.name == "MenuCore")
-            CreateUI();
+            if (arg0.name == "MenuCore")
+                CreateUI();
         }
 
         public void Update()
@@ -158,7 +149,8 @@ namespace BeatSaberTweaks
                 {
                     Plugin.Log("TweakManager not in menu scene", Plugin.LogLevel.DebugOnly);
                 }
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
                 Plugin.Log("TweakManager scene changed error: " + e, Plugin.LogLevel.Error);
             }
@@ -167,7 +159,7 @@ namespace BeatSaberTweaks
         private void CreateUI()
         {
             Plugin.Log("TweakManager creating the BSTweaks UI", Plugin.LogLevel.DebugOnly);
-            
+
             // Interface Tweaks [1]
             var subMenuInterfaceTweaks1 = SettingsUI.CreateSubMenu("Interface Tweaks [1]");
 
@@ -242,10 +234,10 @@ namespace BeatSaberTweaks
 
             // Volume Tweaks
             var subMenuVolumeTweaks = SettingsUI.CreateSubMenu("Volume Tweaks");
-            
+
             var volumeComment = subMenuVolumeTweaks.AddBool("<align=\"center\"><b>The default value is <u>underlined</u>!</b></align>");
             volumeComment.GetValue += delegate { return false; };
-            volumeComment.SetValue += delegate (bool value) {  };
+            volumeComment.SetValue += delegate (bool value) { };
 
             // Hack to convert the boolean toggle into a text only comment
             // This disables the arrows and the value display
@@ -420,68 +412,5 @@ namespace BeatSaberTweaks
                 LogComponents(child, includeScipts, prefix + "|");
             }
         }
-        /*
-        IEnumerator LoadWarning()
-        {
-            string warningText = "The folling plugins are obsolete:\n";
-
-            foreach(var text in warningPlugins)
-            {
-                warningText += text + ", ";
-            }
-            warningText = warningText.Substring(0, warningText.Length - 2);
-
-            warningText +="\nPlease remove them before playing or you my encounter errors.\nDo you want to continue?";
-
-            yield return new WaitForSeconds(0.1f);
-
-            var _menuMasterViewController = Resources.FindObjectsOfTypeAll<StandardLevelSelectionFlowCoordinator>().First();
-            var warning = ReflectionUtil.GetPrivateField<SimpleDialogPromptViewController>(_menuMasterViewController , "_simpleDialogPromptViewController");
-            warning.gameObject.SetActive(false);
-            warning.didFinishEvent += Warning_didFinishEvent;
-            warning.Init("Plugin warning", warningText, "YES", "NO");
-
-            yield return new WaitForSeconds(0.1f);
-
-            _mainMenuViewController.PresentModalViewController(warning, null, false);
-        }
-
-        private void Warning_didFinishEvent(SimpleDialogPromptViewController viewController, bool ok)
-        {
-            viewController.didFinishEvent -= Warning_didFinishEvent;
-            if (viewController.isRebuildingHierarchy)
-            {
-                return;
-            }
-            if (ok)
-            {
-                viewController.DismissModalViewController(null, false);
-            }
-            else
-            {
-                Application.Quit();
-            }
-        }
-        */
-
-        /*
-        private void Prompt_didFinishEvent(SimpleDialogPromptViewController viewController, bool ok)
-        {
-            viewController.didFinishEvent -= Prompt_didFinishEvent;
-            if (viewController.isRebuildingHierarchy)
-            {
-                return;
-            }
-            if (ok)
-            {
-                //Console.WriteLine("OK");
-            }
-            else
-            {
-                //Console.WriteLine("NO");
-            }
-            viewController.DismissModalViewController(null, false);
-        }
-        */
     }
 }

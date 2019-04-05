@@ -1,107 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B23464CB-FC56-49D4-B647-C935BFE12967}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7A31BEE-9127-40DB-8950-297658D1A789}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BeatSaberTweaks</RootNamespace>
     <AssemblyName>BeatSaberTweaks</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <PathMap>$(SolutionDir)=C:\</PathMap>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'OldUI|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NewUI|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NewUI</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\0Harmony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="BeatSaberCustomUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\BeatSaberCustomUI.dll</HintPath>
+    <Reference Include="BeatSaberCustomUI">
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Plugins\BeatSaberCustomUI.dll</HintPath>
     </Reference>
     <Reference Include="BS_Utils">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\BS_Utils.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Plugins\BS_Utils.dll</HintPath>
     </Reference>
-    <Reference Include="IllusionPlugin">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\IllusionPlugin.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="IPA.Loader">
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>..\..\..\..\..\..\..\Programs\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.VRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HarmonyPatches\AudioPitchGainEffectStartEffect.cs" />
     <Compile Include="HarmonyPatches\SongPreviewPlayerCrossfadeTo.cs" />
-    <Compile Include="Tweaks\MenuTweaks\FireworksTweaks.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="PluginConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="TweakManager.cs" />
+    <Compile Include="Tweaks\InGameClock.cs" />
     <Compile Include="Tweaks\IngameTimeSpentClock.cs" />
     <Compile Include="Tweaks\MenuTweaks\ClickShockwave.cs" />
+    <Compile Include="Tweaks\MenuTweaks\FireworksTweaks.cs" />
     <Compile Include="Tweaks\MenuTweaks\LevelsFailedTweak.cs" />
+    <Compile Include="Tweaks\MoveEnergyBar.cs" />
     <Compile Include="Tweaks\MusicVolume.cs" />
+    <Compile Include="Tweaks\NoteHitVolume.cs" />
     <Compile Include="Tweaks\OneColour.cs" />
-    <Compile Include="Tweaks\SongDataModifer.cs" />
     <Compile Include="Tweaks\ScoreMover.cs" />
+    <Compile Include="Tweaks\SongDataModifer.cs" />
     <Compile Include="Tweaks\TimeSpentClock.cs" />
     <Compile Include="Utilites\ConInput.cs" />
+    <Compile Include="Utilites\ReflectionUtil.cs" />
     <Compile Include="Utilites\Ryder.Lightweight.cs" />
     <Compile Include="Utilites\SceneEvents.cs" />
     <Compile Include="Utilites\SceneLoadHandler.cs" />
@@ -109,18 +110,12 @@
     <Compile Include="Utilites\TableViewHelper.cs" />
     <Compile Include="Utilites\TextAlignUtil.cs" />
     <Compile Include="ViewControllers\HiddenNotesSettingsController.cs" />
-    <Compile Include="Tweaks\InGameClock.cs" />
-    <Compile Include="Tweaks\MoveEnergyBar.cs" />
-    <Compile Include="Tweaks\NoteHitVolume.cs" />
-    <Compile Include="Plugin.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilites\ReflectionUtil.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="TweakManager.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="manifest.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetFileName)" "C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Programs\Steam\steamapps\common\Beat Saber\Plugins\$(TargetName).dll"</PostBuildEvent>
   </PropertyGroup>
 </Project>
