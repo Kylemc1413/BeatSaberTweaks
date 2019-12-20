@@ -343,6 +343,14 @@ namespace BeatSaberTweaks
                 return string.Format("{0}%", Mathf.Floor(value * 100));
             };
 
+            var fanfare = subMenuVolumeTweaks.AddList("Song Finished Fanfare Volume", incrementValues(), "The volume of the fanfare that plays when you finish a song.");
+            fanfare.GetValue += delegate { return Settings.SongFinishFanfareVolume; };
+            fanfare.SetValue += delegate (float value) { Settings.SongFinishFanfareVolume = value; };
+            fanfare.FormatValue += delegate (float value) {
+                if (value == 1f) return string.Format("<u>{0}%</u>", Mathf.Floor(value * 100));
+                return string.Format("{0}%", Mathf.Floor(value * 100));
+            };
+
             // Party Mode Tweaks
             var subMenuPartyModeTweaks = SettingsUI.CreateSubMenu("Party Mode Tweaks");
 

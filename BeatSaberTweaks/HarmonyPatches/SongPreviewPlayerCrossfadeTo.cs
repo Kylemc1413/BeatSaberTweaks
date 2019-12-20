@@ -17,10 +17,20 @@ namespace BeatSaberTweaks.HarmonyPatches
         {
             // Check if this is the default audio clip, and if it is, use the Menu BG Music Volume, otherwise use the preview volume.
             var defaultClip = ReflectionUtil.GetPrivateField<AudioClip>(__instance, "_defaultAudioClip");
+            var resultsViewController = Resources.FindObjectsOfTypeAll<ResultsViewController>().FirstOrDefault();
+            AudioClip levelClearedClip = null;
+            if (resultsViewController != null)
+            {
+                levelClearedClip = ReflectionUtil.GetPrivateField<AudioClip>(resultsViewController, "_levelClearedAudioClip");
+            }
             if (audioClip == defaultClip)
             {
                 __instance.volume = Settings.MenuBGVolume;
                 Plugin.Log("Setting SongPreviewPlayer volume to MenuBGVolume : " + __instance.volume, Plugin.LogLevel.DebugOnly);
+            }
+            else if (audioClip == levelClearedClip)
+            {
+                __instance.volume = Settings.SongFinishFanfareVolume;
             }
             else
             {

@@ -41,6 +41,10 @@ namespace BeatSaberTweaks
         float menuBGVolume = 1.0f;
         public static float MenuBGVolume { get => instance.menuBGVolume; set { instance.menuBGVolume = value; Plugin.saveRequested = true; } }
 
+        [SerializeField]
+        float songFinishFanfareVolume = 1.0f;
+        public static float SongFinishFanfareVolume { get => instance.songFinishFanfareVolume; set { instance.songFinishFanfareVolume = value; Plugin.saveRequested = true; } }
+
         // In Game Clock
         [SerializeField]
         bool showclock = false;
